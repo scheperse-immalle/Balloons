@@ -54,8 +54,11 @@ namespace WpfApplication1
             ellipse.Width = diameter;
             ellipse.Height = diameter;
             ellipse.Margin = new Thickness(x, y, 0, 0);
-            ellipse.Stroke = new SolidColorBrush(Colors.Red);
+            ellipse.StrokeThickness = 20;
+            ellipse.Fill = new SolidColorBrush(Colors.LightBlue);
+            ellipse.Stroke = new SolidColorBrush(Colors.Pink);
             canvas.Children.Add(ellipse);
+
         }
 
         public void Grow()
