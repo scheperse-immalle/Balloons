@@ -17,7 +17,7 @@ namespace WpfApplication1
         private int x = 10;
         private int y = 100;
         private int diameter = 10;
-
+        TextBlock textBlock = new TextBlock();
         Ellipse ellipse = new Ellipse();
 
         static Random rndGen = new Random();
@@ -27,7 +27,7 @@ namespace WpfApplication1
             diameter = rndGen.Next();
             x = rndGen.Next();
             y = rndGen.Next();
-
+            
             UpdateEllipse(canvas);
         }
 
@@ -43,8 +43,8 @@ namespace WpfApplication1
         public Balloon(Canvas canvas, int diameter, int height)
         {
             this.diameter = diameter;
-            x = rndGen.Next(10,300);
-            y = rndGen.Next(10,300);
+            x = rndGen.Next(10,3000);
+            y = rndGen.Next(10,3000);
 
             UpdateEllipse(canvas);
         }
@@ -58,7 +58,10 @@ namespace WpfApplication1
             ellipse.Fill = new SolidColorBrush(Colors.LightBlue);
             ellipse.Stroke = new SolidColorBrush(Colors.Pink);
             canvas.Children.Add(ellipse);
-
+            textBlock.Text = "HAPPY BIRTHDAY LOES!";
+            textBlock.Margin = new Thickness(x, y, 100, 500);
+            textBlock.FontFamily = new FontFamily("Kristen ITC");
+            canvas.Children.Add(textBlock);
         }
 
         public void Grow()
