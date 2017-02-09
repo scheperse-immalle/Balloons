@@ -61,6 +61,7 @@ namespace WpfApplication1
             textBlock.Text = "HAPPY BIRTHDAY LOES!";
             textBlock.Margin = new Thickness(x, y, 100, 500);
             textBlock.FontFamily = new FontFamily("Kristen ITC");
+            textBlock.Foreground = new SolidColorBrush(Colors.Aquamarine);
             canvas.Children.Add(textBlock);
         }
 
