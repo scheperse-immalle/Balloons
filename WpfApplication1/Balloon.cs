@@ -63,6 +63,7 @@ namespace WpfApplication1
             textBlock.FontFamily = new FontFamily("Kristen ITC");
             textBlock.Foreground = new SolidColorBrush(Colors.Aquamarine);
             canvas.Children.Add(textBlock);
+            textBlock.FontSize = 10;
         }
 
         public void Grow()
@@ -76,6 +77,7 @@ namespace WpfApplication1
         {
             y -= 10;
             ellipse.Margin = new Thickness(x, y, 0, 0);
+            textBlock.Margin = new Thickness(x + diameter / 4, y + diameter / 4, 0, 0);
         }
 
     public int X
