@@ -19,7 +19,8 @@ namespace WpfApplication1
         private int diameter = 10;
         TextBlock textBlock = new TextBlock();
         Ellipse ellipse = new Ellipse();
-
+        Brush strokeBrush = Brushes.Red;
+        Brush bgBrush = new LinearGradientBrush(Colors.Red, Colors.Pink, 90);
         static Random rndGen = new Random();
 
         public Balloon(Canvas canvas)
@@ -28,7 +29,9 @@ namespace WpfApplication1
             x = rndGen.Next();
             y = rndGen.Next();
             
-            UpdateEllipse(canvas);
+            UpdateEllipse();
+            canvas.Children.Add(ellipse);
+            canvas.Children.Add(textBlock);
         }
 
         public Balloon(Canvas canvas, int diameter)
@@ -37,7 +40,9 @@ namespace WpfApplication1
              x = rndGen.Next(50,1000);
             y = rndGen.Next(50,1000);
 
-            UpdateEllipse(canvas);
+            UpdateEllipse();
+            canvas.Children.Add(ellipse);
+            canvas.Children.Add(textBlock);
         }
 
         public Balloon(Canvas canvas, int diameter, int height)
@@ -46,23 +51,26 @@ namespace WpfApplication1
             x = rndGen.Next(10,3000);
             y = rndGen.Next(10,3000);
 
-            UpdateEllipse(canvas);
+            UpdateEllipse();
+            canvas.Children.Add(textBlock);
+            canvas.Children.Add(ellipse);
+           
         }
 
-        void UpdateEllipse(Canvas canvas)
+        void UpdateEllipse()
         {
             ellipse.Width = diameter;
             ellipse.Height = diameter;
             ellipse.Margin = new Thickness(x, y, 0, 0);
             ellipse.StrokeThickness = 10;
-            ellipse.Fill = new SolidColorBrush(Colors.LightBlue);
-            ellipse.Stroke = new SolidColorBrush(Colors.Pink);
-            canvas.Children.Add(ellipse);
-            textBlock.Text = "HAPPY BIRTHDAY LOES!";
+            ellipse.Fill = bgBrush;
+            ellipse.Stroke =strokeBrush;
+           
+            textBlock.Text = "HOI";
             textBlock.Margin = new Thickness(x, y, 100, 500);
             textBlock.FontFamily = new FontFamily("Kristen ITC");
             textBlock.Foreground = new SolidColorBrush(Colors.Aquamarine);
-            canvas.Children.Add(textBlock);
+            
             textBlock.FontSize = 10;
         }
 
@@ -79,6 +87,19 @@ namespace WpfApplication1
             ellipse.Margin = new Thickness(x, y, 0, 0);
             textBlock.Margin = new Thickness(x + diameter / 4, y + diameter / 4, 0, 0);
         }
+        public Brush Background
+        {
+            get
+            {
+                return bgBrush;
+            }
+            set
+            {
+                bgBrush = value;
+                UpdateEllipse();
+                
+            }
+        }
 
     public int X
         {
@@ -89,6 +110,7 @@ namespace WpfApplication1
             set
             {
                 x = value;
+                UpdateEllipse();
               
             }
         }

@@ -7,7 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Canvas x:Name="canvas"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF16BFFF" Offset="1"/>
+                <GradientStop Color="#FF000405"/>
+                <GradientStop Color="White"/>
+                <GradientStop Color="#FF15BBF9" Offset="0.46"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Canvas x:Name="canvas" AutomationProperties.IsRequiredForForm="True"/>
         <Button x:Name="growButton" Content="Grow" HorizontalAlignment="Left" Margin="89,75,0,0" VerticalAlignment="Top" Width="75" Click="growButton_Click" />
         <Button x:Name="moveButton" Content="Move" HorizontalAlignment="Left" Margin="89,100,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.206,-0.236" Click="moveButton_Click"/>
         <Button x:Name="button" Content="Init" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="89,125,0,0" Click="button_Click"/>

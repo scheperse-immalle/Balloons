@@ -56,9 +56,13 @@ namespace WpfApplication1
                 {
                     Balloon newBalloon = new Balloon(canvas, 20, 100);
                     balloons.Add(newBalloon);
+                if (i % 5 == 0)
+                {
+                    newBalloon.Background = Brushes.PaleVioletRed;
                 }
-            
-
+                    
+                    balloons.Add(newBalloon);
+                }
 
         }
 
